@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora&family=Space+Mono&display=swap');
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -14,6 +16,10 @@
   --text-muted: #8b93b8;
   --font-main: 'Sora', sans-serif;
   --font-mono: 'Space Mono', monospace;
+  --bg-stat: #1c2340;
+  --border-stat: rgba(255, 255, 255, 0.08);
+  --bg-card: #111729;
+  --radius-md: 14px;
   /* ...all your design tokens */
 }
 
