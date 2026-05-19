@@ -1,6 +1,15 @@
-import './Hero.css'
+import './Hero.css';
 
-function HeroSection() {
+function HeroSection({ search, setSearch, fetchUserProfile, fetchUserRepo, userProfile }) {
+  // if (!userProfile) return null;
+
+  const onEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      fetchUserProfile();
+      fetchUserRepo();
+    }
+  }
+
   return (
     <>
       <div className="hero">
@@ -13,22 +22,28 @@ function HeroSection() {
             <svg className="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
             </svg>
-            <input className="search-input" type="text" placeholder="Search GitHub username..." value="github" />
+            <input
+              className="search-input"
+              type="text"
+              placeholder="Search GitHub username..."
+              value={search}
+              onChange={(event) => setSearch(event.target.value)}
+              onKeyDown={onEnter} />
           </div>
 
-          <div className="search-dropdown">
-            <div className="dropdown-item">
-              <div className="dropdown-avatar">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 2C6.477 2 2 6.477 2 12c0 4.419 2.865 8.166 6.839 9.489.5.09.682-.218.682-.484 0-.236-.009-.866-.014-1.699-2.782.602-3.369-1.34-3.369-1.34-.455-1.157-1.11-1.465-1.11-1.465-.909-.62.069-.608.069-.608 1.004.071 1.532 1.03 1.532 1.03.891 1.529 2.341 1.089 2.91.833.091-.647.349-1.086.635-1.337-2.22-.251-4.555-1.111-4.555-4.943 0-1.091.39-1.984 1.03-2.682-.103-.254-.447-1.27.098-2.646 0 0 .84-.269 2.75 1.025A9.548 9.548 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.748-1.025 2.748-1.025.546 1.376.202 2.394.1 2.646.64.699 1.026 1.591 1.026 2.682 0 3.841-2.337 4.687-4.565 4.935.359.307.679.917.679 1.852 0 1.335-.012 2.415-.012 2.741 0 .269.18.579.688.481C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z" />
-                </svg>
-              </div>
-              <div>
-                <div className="dropdown-name">GitHub</div>
-                <div className="dropdown-bio">How people build software.</div>
+          {userProfile &&
+            <div className="search-dropdown">
+              <div className="dropdown-item">
+                <div className="dropdown-avatar">
+                  <img src={userProfile.avatar_url} />
+                </div>
+                <div>
+                  <div className="dropdown-name">{userProfile.login}</div>
+                  <div className="dropdown-bio">{userProfile.bio}</div>
+                </div>
               </div>
             </div>
-          </div>
+          }
         </div>
       </div>
     </>

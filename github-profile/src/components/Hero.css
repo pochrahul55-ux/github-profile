@@ -152,3 +152,10 @@
 @media (max-width: 600px) {
   .hero { height: 210px; }
 }
+
+.dropdown-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
