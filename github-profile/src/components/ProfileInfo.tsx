@@ -7,6 +7,7 @@ function ProfileInfo() {
         <h1 className="profile-name">GitHub</h1>
         <p className="profile-bio">How people build software.</p>
       </div>
+        <div className="section-gap"></div>
     </>
   )
 }

@@ -1,0 +1,23 @@
+  .view-all-wrap {
+    text-align: center;
+    margin-top: 36px;
+  }
+
+  .view-all-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-main);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-muted);
+    background: none;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    transition: color 0.2s;
+  }
+
+  .view-all-btn:hover { 
+    color: var(--text-primary); 
+  }
