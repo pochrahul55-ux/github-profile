@@ -10,7 +10,7 @@ import axios from 'axios';
 function App() {
   const [search, setSearch] = useState('');
   const [userProfile, setUserProfile] = useState(null);
-  const [userRepo, setUserRepo] = useState(null);
+  const [userRepo, setUserRepo] = useState([]);
 
   const fetchUserProfile = async () => {
     const response = await axios.get(`https://api.github.com/users/${search}`);
@@ -38,7 +38,10 @@ function App() {
         <ProfileInfo
           userProfile={userProfile}
         />
-        <RepoGrid />
+        <RepoGrid 
+          userRepo={userRepo}
+          userProfile={userProfile}
+        />
         <ViewAllSection />
       </div>
     </>
