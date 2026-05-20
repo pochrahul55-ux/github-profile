@@ -14,6 +14,7 @@ type HeroSectionProps = {
 function HeroSection({ search, setSearch, fetchAll, userProfile, isLoading, error }: HeroSectionProps) {
   const onEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
+      if(search.trim() === '') return;
       fetchAll();
     }
   }
