@@ -26,6 +26,7 @@ function App() {
       setUserRepo(userRepoResponse.data);
     }
     catch(error) {
+      console.log('API Fetch Error:', error)
       setError('User Not Found');
       setUserProfile(null);
       setUserRepo([]);
