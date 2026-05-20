@@ -1,8 +1,17 @@
-import { useState } from 'react';
 import './Hero.css';
 import { Search } from 'lucide-react';
+import type { UserProfile } from './types';
 
-function HeroSection({ search, setSearch, fetchAll, userProfile, isLoading, error }) {
+type HeroSectionProps = {
+  search: string;
+  setSearch: (value: string) => void;
+  fetchAll: () => void;
+  userProfile: UserProfile | null;
+  isLoading: boolean;
+  error: string | null;
+}
+
+function HeroSection({ search, setSearch, fetchAll, userProfile, isLoading, error }: HeroSectionProps) {
   const onEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
       fetchAll();

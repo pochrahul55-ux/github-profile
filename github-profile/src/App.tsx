@@ -12,7 +12,7 @@ function App() {
   const [userProfile, setUserProfile] = useState(null);
   const [userRepo, setUserRepo] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
   const fetchAll = async () => {
     setError(null);

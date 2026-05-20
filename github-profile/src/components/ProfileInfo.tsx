@@ -1,6 +1,7 @@
 import './ProfileInfo.css';
+import type { UserProfile } from './types';
 
-function ProfileInfo({ userProfile }) {
+function ProfileInfo({ userProfile }: {userProfile: UserProfile | null}) {
   if (!userProfile) return null;
   return (
     <>

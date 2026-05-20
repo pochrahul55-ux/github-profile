@@ -1,7 +1,8 @@
 import './ViewAll.css';
 import { ArrowRight } from 'lucide-react';
+import type { UserProfile } from './types';
 
-function ViewAllSection({ userProfile }) {
+function ViewAllSection({ userProfile }: {userProfile: UserProfile | null}) {
   if (!userProfile) return null;
   return (
     <>

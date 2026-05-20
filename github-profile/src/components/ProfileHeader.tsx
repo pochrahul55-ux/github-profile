@@ -1,6 +1,7 @@
 import './ProfileHeader.css';
+import type { UserProfile } from './types';
 
-function ProfileHeader({ userProfile }) {
+function ProfileHeader({ userProfile }: {userProfile: UserProfile | null}) {
   if (!userProfile) return null;
   return (
     <>
