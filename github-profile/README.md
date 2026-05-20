@@ -2,7 +2,7 @@
 
 A React + TypeScript application that allows users to search for GitHub profiles and explore their repositories using the GitHub REST API.
 
-## 🚀 Live Demo
+## Live Demo
 [github-profile-three-pink.vercel.app](https://github-profile-three-pink.vercel.app)
 
 ## Features
