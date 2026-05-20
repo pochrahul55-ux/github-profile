@@ -11,38 +11,53 @@ function App() {
   const [search, setSearch] = useState('');
   const [userProfile, setUserProfile] = useState(null);
   const [userRepo, setUserRepo] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  const fetchUserProfile = async () => {
-    const response = await axios.get(`https://api.github.com/users/${search}`);
-    setUserProfile(response.data);
-  }
-
-  const fetchUserRepo = async () => {
-    const response = await axios.get(`https://api.github.com/users/${search}/repos`);
-    setUserRepo(response.data);
+  const fetchAll = async () => {
+    setError(null);
+    setIsLoading(true);
+    try {
+      const [userProfileResponse, userRepoResponse] = await Promise.all([
+        axios.get(`https://api.github.com/users/${search}`),
+        axios.get(`https://api.github.com/users/${search}/repos`)
+      ]);
+      setUserProfile(userProfileResponse.data);
+      setUserRepo(userRepoResponse.data);
+    }
+    catch(error) {
+      setError('User Not Found');
+      setUserProfile(null);
+      setUserRepo([]);
+    }
+    finally {
+      setIsLoading(false);
+    }
   }
 
   return (
     <>
-      <HeroSection 
+      <HeroSection
         search={search}
         setSearch={setSearch}
-        fetchUserProfile={fetchUserProfile}
-        fetchUserRepo={fetchUserRepo}
+        fetchAll={fetchAll}
         userProfile={userProfile}
+        isLoading={isLoading}
+        error={error}
       />
       <div className="container">
-        <ProfileHeader 
+        <ProfileHeader
           userProfile={userProfile}
         />
         <ProfileInfo
           userProfile={userProfile}
         />
-        <RepoGrid 
+        <RepoGrid
           userRepo={userRepo}
+        />
+        <ViewAllSection
           userProfile={userProfile}
         />
-        <ViewAllSection />
       </div>
     </>
   )
