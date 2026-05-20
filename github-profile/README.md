@@ -3,7 +3,7 @@
 A React + TypeScript application that allows users to search for GitHub profiles and explore their repositories using the GitHub REST API.
 
 ## 🚀 Live Demo
-github-profile-three-pink.vercel.app
+[github-profile-three-pink.vercel.app](https://github-profile-three-pink.vercel.app)
 
 ## Features
 
@@ -35,7 +35,7 @@ github-profile-three-pink.vercel.app
 
 1. Clone the repository
 ```bash
-   git clone https://github.com/YOUR_USERNAME/github-profile.git
+   git clone [github.com/pochrahul55/github-profile](https://github.com/pochrahul55/github-profile)
    cd github-profile
 ```
 
