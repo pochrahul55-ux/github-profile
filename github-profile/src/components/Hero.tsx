@@ -27,6 +27,7 @@ function HeroSection({ search, setSearch, fetchAll, userProfile, isLoading, erro
         <div className="planet"></div>
 
         <div className="search-wrap">
+          <h1 className="hero-title">GitHub Profile Explorer</h1>
           <div className="search-box">
             <Search size={14} />
             <input

@@ -159,3 +159,13 @@
   object-fit: cover;
   display: block;
 }
+
+.hero-title {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+  letter-spacing: -0.02em;
+  margin-bottom: 50px;
+}
