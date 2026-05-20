@@ -24,6 +24,8 @@ A React + TypeScript application that allows users to search for GitHub profiles
 - Lucide React (icons)
 - Day.js (relative timestamps)
 - CSS (component-scoped)
+- Vitest (unit testing)
+- React Testing Library (component testing)
 
 ## Getting Started
 
@@ -50,6 +52,20 @@ A React + TypeScript application that allows users to search for GitHub profiles
 ```
 
 4. Open [http://localhost:5173](http://localhost:5173) in your browser
+
+## Running Tests
+
+This project uses Vitest and React Testing Library for unit testing.
+
+### Run tests
+```bash
+npm run test
+```
+
+### Run tests with UI
+```bash
+npx vitest --ui
+```
 
 ## API Reference
 
